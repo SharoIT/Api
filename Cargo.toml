@@ -5,7 +5,15 @@ authors = ["Elian Gutierrez <eliangu3600103@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-rocket = "0.4.0-rc.1"
+rocket = "0.3.17"
 mongodb = "0.3.10"
 bson = "0.12.2"
+rocket_codegen = "0.3.6"
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"
 
+[dependencies.rocket_contrib]
+version = "*"
+default-features = false
+features = ["json"]
