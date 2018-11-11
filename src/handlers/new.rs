@@ -14,6 +14,7 @@
 
 use super::super::Context;
 use super::super::Database;
+use mongodb::coll::results::InsertOneResult;
 use rocket::State;
 use rocket_contrib::json::Json;
 
@@ -43,13 +44,14 @@ pub fn new(ctx: State<Context>, document: Json<DocumentForm>) -> Json<SampleResp
         "title": document.title.clone()
     };
 
-    // Insert document inside the database
     let docs_coll = db.get_coll("documents");
 
+    // Insert document inside the database
     match docs_coll.insert_one(data, None) {
         Ok(inserted) => {
             let doc_id = inserted.inserted_id.unwrap();
 
+            // no errors, send a response with the object_id of the inserted document
             Json(SampleResponse {
                 error: false,
                 message: None,
