@@ -14,7 +14,6 @@
 
 use super::super::Context;
 use super::super::Database;
-use mongodb::coll::results::InsertOneResult;
 use rocket::State;
 use rocket_contrib::json::Json;
 

@@ -30,6 +30,7 @@ mod handlers;
 
 pub use self::database::Database;
 use self::handlers::new;
+use self::handlers::show;
 
 pub struct Context {
     pub db: Database,
@@ -40,6 +41,6 @@ fn main() {
         .manage(Context {
             db: Database::connect("localhost", 27017, "sharoit"),
         })
-        .mount("/", routes![new::new])
+        .mount("/", routes![new::new, show::show])
         .launch();
 }
