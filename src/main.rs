@@ -40,6 +40,6 @@ fn main() {
         .manage(Context {
             db: Database::connect("localhost", 27017, "sharoit"),
         })
-        .mount("/new", routes![new::new])
+        .mount("/", routes![new::new])
         .launch();
 }
