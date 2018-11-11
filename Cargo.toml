@@ -1,0 +1,11 @@
+[package]
+name = "api"
+version = "0.1.0"
+authors = ["Elian Gutierrez <eliangu3600103@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+rocket = "0.4.0-rc.1"
+mongodb = "0.3.10"
+bson = "0.12.2"
+
